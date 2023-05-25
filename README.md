@@ -179,4 +179,4 @@ The url to your repository and to your deployed project
 
 The url to your presentation slides
 
-[Slides Link](https://docs.google.com/presentation/d/1zndKZ8DC-_i391alptPKsAKanCSXTrLVL39L3xtEjz8/edit?usp=sharing)
+[Slides Link](https://docs.google.com/presentation/d/1JbQUXHPBXj2VIOu_rCn_mEHzTUJWQGPVyWx7Yb9MLnM/edit?usp=sharing)
