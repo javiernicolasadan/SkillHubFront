@@ -167,16 +167,18 @@ Event model
 
 ### Git
 
-The url to your repository and to your deployed project
-
 [Client repository Link](https://github.com/javiernicolasadan/SkillHubFront)
 
 [Server repository Link](https://github.com/javiernicolasadan/SkillHubBack)
 
 [Deployed App Link](https://kaleidoscopic-eclair-d386a9.netlify.app/)
 
+[MockFlow draws](https://acortar.link/zGtfd2)
+
 ### Slides
 
-The url to your presentation slides
-
 [Slides Link](https://docs.google.com/presentation/d/1JbQUXHPBXj2VIOu_rCn_mEHzTUJWQGPVyWx7Yb9MLnM/edit?usp=sharing)
+
+### Draws
+
+[MockFlow](https://acortar.link/zGtfd2)
