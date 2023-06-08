@@ -18,19 +18,27 @@ body *{
 }
 
 h1{
-  font-size: 1.5rem;
+  font-size: 4rem;
   padding-left: 0;
   margin-top: 0;
+  text-align: center;
+}
+
+h2{
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 nav{
-  background-color: #fbeb7c;
-  /* height: 3rem; */
+  background-color: transparent;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: black;
-  font-weight: 200;
+  font-weight: 300;
+  padding-right: 0;
+  
 }
 
 
@@ -43,7 +51,8 @@ nav{
   font-weight: 500;
   color: black;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .authField{
@@ -58,21 +67,22 @@ nav{
 .header h1 {
   font-family: Montserrat;
   font-weight: 300;
-  size: 6rem;
+  size: 5rem;
   color: #fff;
   text-shadow:
-    0 0 5px #fff,
-    0 0 8px #fff,
+    0 0 5px #b1b0b0,
+    0 0 8px #b1b0b0,
     0 0 12px #fff,
     0 0 1px #e2e60c,
     0 0 30px #e2e60c,
     0 0 1px #e2e60c,
     0 0 1px #e2e60c,
     0 0 100px #e2e60c;
+    font-weight: bold;
 }
 
 .header p{
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   line-height: 1.5;
 }
 
@@ -102,11 +112,15 @@ nav{
 }
 
 .allskills{
-  background-image: url('/images/b&w skillsjpg.jpg');
+  background-color: white;
+}
+
+.allskills a{
+  border: 2px solid black ;
 }
 
 .allevents{
-  background-image: url('/images/b&w events.jpg');
+  background-image: url('/images/b&weventsPeach.jpg');
 }
 
 .dropDownMenu{
@@ -126,7 +140,7 @@ nav{
 .grid {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 0.5fr));
   gap: 2px;
   padding: 0;
 }
@@ -219,6 +233,7 @@ nav{
 .noMargin {
   margin: 0 -1rem;
   padding: 0;
+  margin-bottom: 3rem;
 }
 
 .noMargin h3{
@@ -235,7 +250,7 @@ nav{
 .grid {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 0.5fr));
   gap: 2px;
   padding: 0;
 }
@@ -255,7 +270,7 @@ nav{
 /* Estilos para tablet */
 @media (min-width: 768px) {
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 0.3333333333fr));
   }
 
   .container {
@@ -266,7 +281,7 @@ nav{
 /* Estilos para web */
 @media (min-width: 1200px) {
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 0.3333333333fr));
   }
 
   .container {

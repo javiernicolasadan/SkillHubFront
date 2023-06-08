@@ -28,13 +28,12 @@ if(currentUser){
 }
 return (
   <>
-    {/* <Link to="/addskill">Add skill</Link>
-    <Link to="/addevent">Add Event</Link> */}
-    <div>
+   
+    <div className="contentDiv">
       {currentUser ? (
         <>
           <div className="userInfo">
-            <h1>Welcome back {currentUser.username}</h1>
+            <h2>Welcome back {currentUser.username}</h2>
             <p>Email: {currentUser.email}</p>
             <p>Username: {currentUser.username}</p>
             <p>Skills offered: {currentUser.skills.length}</p>
@@ -49,6 +48,8 @@ return (
             <h3>My Skills:</h3>
 
             <div className="grid">
+              <div className="container" style={{ fontSize: "4rem"}}>
+              <Link to={'/addskill'} style={{ color: 'black' }}>+</Link></div>
               {currentUser.skills.length > 0 ? (
                 currentUser.skills.map((skill) => (
                   <div key={skill._id} className="container">

@@ -13,8 +13,6 @@ export default function AddSkill({ isUpdating = false }) {
   const { skillid } = useParams()
   const [previewImageUrl, setPreviewImageUrl] = useState("");
   const [originalImageUrl, setOriginalImageUrl] = useState("");
-  /* console.log(skillid) */
-
 
   useEffect(() => {
     const fetchSkill = async () => {
@@ -56,30 +54,7 @@ export default function AddSkill({ isUpdating = false }) {
           }
         }
         console.log(imageUrl)
-    
-    /* try {
-      let response;
-      if (isUpdating && skillid) {
-        response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/skill/${skillid}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(fData),
-        });
-      } else {
-        response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/skill/create`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(fData),
-        });
-      }
-      if (response.status === 201 || response.status === 200) {
-        const newSkill = await response.json();
-        setNeedRefreshUser(true)
-        navigate(`/skilldets/${newSkill._id}`);
-      }
-    } catch (error) {
-      console.log(error);
-    } */
+
     try {
       
       let response
@@ -100,11 +75,11 @@ export default function AddSkill({ isUpdating = false }) {
   };
 
   return (
-    <>
-      <h1>{isUpdating ? "Update your Skill" : "Create a new"}</h1>
+    <div className="addSkillDiv">
+      <h2>{isUpdating ? "Update your skill here" : "Add your skill here"}</h2>
      <div>
       <form  className="pageForms" encType="multipart/form-data" onSubmit={handleSubmit}>
-        <div>
+        <div className="addField">
           <label>Category:</label>
           <select
             name="category"
@@ -123,7 +98,8 @@ export default function AddSkill({ isUpdating = false }) {
             <option value="Languages">Languages</option>
           </select>
         </div>
-        <div>
+
+        <div className="addField">
           <label>Title:</label>
           <input
             type="text"
@@ -133,7 +109,8 @@ export default function AddSkill({ isUpdating = false }) {
             required
           />
         </div>
-        <div>
+
+        <div className="addField">
           <label>Details:</label>
           <textarea
             name="details"
@@ -142,15 +119,17 @@ export default function AddSkill({ isUpdating = false }) {
             required
           ></textarea>
         </div>
-        <div>
+
+        <div className="addField">
           <label>
            <input type="file" accept="image/jpg,image/png" name="imageUrl" />
           </label>
             {previewImageUrl && <img src={previewImageUrl} alt="Preview" />}
         </div>
-        <button>{isUpdating ? "Update" : "Create"}</button>
+        <button className="genButton">{isUpdating ? "Update" : "Create"}</button>
       </form>
       </div>
-    </>
+
+    </div>
   );
 }

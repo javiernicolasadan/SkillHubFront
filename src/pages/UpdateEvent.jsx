@@ -56,13 +56,7 @@ export default function UpdateEvent() {
         }
         
         console.log(imageUrl)
-    /* const payload = {
-      title: updatedTitle,
-      description: updatedDescription,
-      date: updatedDate,
-      locationType: updatedLocationType,
-    };
-    console.log(payload) */
+
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_BASE_API_URL}/event/updateevent/${eventId}`,
@@ -78,8 +72,10 @@ export default function UpdateEvent() {
   };
 
   return (
-    <form onSubmit={handleUpdate}>
-      <div>
+    <div className="addSkillDiv">
+    <h2>Update event</h2>
+    <form className="pageForms" onSubmit={handleUpdate}>
+      <div className="addField">
         <label>Event Title:</label>
         <input
           type="text"
@@ -90,7 +86,7 @@ export default function UpdateEvent() {
         />
       </div>
 
-      <div>
+      <div className="addField">
         <label>Description:</label>
         <textarea
           type="text"
@@ -101,7 +97,7 @@ export default function UpdateEvent() {
         ></textarea>
       </div>
 
-      <div>
+      <div className="addField">
         <label>Date:</label>
         <input
           type="date"
@@ -112,7 +108,7 @@ export default function UpdateEvent() {
         />
       </div>
 
-      <div>
+      <div className="addField">
         <label>Online/In-person:</label>
         <select
           type="text"
@@ -126,7 +122,7 @@ export default function UpdateEvent() {
         </select>
       </div>
 
-      <div>
+      <div className="addField">
       <label>
         <input type="file" accept="image/jpg,image/png" name="imageUrl" />
       </label>
@@ -134,9 +130,10 @@ export default function UpdateEvent() {
     </div>
 
       <div>
-        <button type="submit">Update Event</button>
+        <button type="submit" className="genButton">Update Event</button>
       </div>
     </form>
+    </div>
   );
 }
 

@@ -44,7 +44,7 @@ export default function Profile() {
       <div className="container">
   {currentUser ? (
     <>
-      <h1>My Skills:</h1>
+      <h3>My Skills:</h3>
       {currentUser.skills.length > 0 ? (
         currentUser.skills.map((skill) => (
           <div key={skill._id}>

@@ -15,12 +15,13 @@ export default function AddEvent() {
     const navigate= useNavigate()
 
     const fetchSkillData = async()=>{
-      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/${skillid}`)
+      const response = await fetch(`${import.meta.env.VITE_BASE_API_URL}/skill/${skillid}`)
       if(response.status === 200){
         const parsed = await response.json()
         setSelectedSkill(parsed)
       }
     }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -61,28 +62,22 @@ export default function AddEvent() {
       
 
   return (
-    <>
-    {/* {selectedSkill ?
-    <>
-    <h2>Category: {selectedSkill.category}</h2>
-    <h3>{selectedSkill.title}</h3>
-    <h3>Created by: {currentUser.username}</h3>
-    </>
-    :
-    <p>Loading...</p>} */}
-     
+    <div className="addSkillDiv">
+     <h2>Schedule an event</h2>
+     {selectedSkill && <h3>{selectedSkill.category} / {selectedSkill.title}</h3>}
+
     <form className="pageForms" encType="multipart/form-data" onSubmit={handleSubmit}>
-       <div >
+       <div className="addField">
          <label>Event Title:</label>
          <input type="text" name="title" value={newTitle} onChange={(e) => setTitle(e.target.value)} required></input>
        </div>
 
-       <div>
+       <div className="addField">
         <label>Date:</label>
         <input type="date" name="date" value={newDate} onChange={(e) => setDate(e.target.value)} required></input>
        </div>
 
-       <div>
+       <div className="addField">
         <label>Online/In-person:</label>
         <select type="text" name="locationType" value={newLocationType} onChange={(e) => setLocatioType(e.target.value)} required>
             <option value="online">Online</option>
@@ -90,23 +85,23 @@ export default function AddEvent() {
          </select>
        </div>
 
-       <div>
+       <div className="addField">
         <label>Description:</label>
         <textarea type="text" name="description" value={newDescription} onChange={(e) => setDescription(e.target.value)} required></textarea>
        </div>
 
-       <div>
+       <div className="addField">
         <label>
           <input type="file" accept="image/jpg image/png" name="imageUrl" />
         </label>
 
        </div>
 
-       <div>
-        <button type="submit">Create Event:</button>
+       <div className="addField">
+        <button type="submit" className="genButton">Create Event</button>
        </div>
 
     </form>
-    </>
+    </div>
   )
 }

@@ -58,57 +58,71 @@ export default function SkillDetails() {
   };
 
   return (
-    <>
-      {skill ? (
+    <div>
+    {skill ? (
       <>
+      <div className="skill-dets">
         <div className="fullWidthImg">
-        {skill.imageUrl &&
-          <img src={skill.imageUrl} alt={skill.title}/>}
+          {skill.imageUrl &&
+            <img src={skill.imageUrl} alt={skill.title}/>}
         </div>
 
-        <div>
-          <h1>Details of {skill.title}</h1>
-          <h2>{skill.details}</h2>
-          <Link to={`/updateskill/${skillid}`}> Update </Link>
-          <button type="button" onClick={handleDelete}>Delete</button>
-          <Link to={`/addevent/${skillid}`}>Add event</Link>
+        <div className="skill-dets">
+          <h3>Details of {skill.title}</h3>
+          <p>{skill.details}</p>
+          <br/>
+          <Link to={`/updateskill/${skillid}`}> Update skill</Link>
+          <button type="button" onClick={handleDelete}>Delete skill</button>
+          <Link to={`/addevent/${skillid}`}>Add event to skill</Link>
+        </div>
+      </div>
 
+
+
+      <div className="noMargin">
         <h3>Upcoming Events:</h3>
+        <div className="grid">
         {upcomingEvents ? (
           upcomingEvents.map((eachEvent) => (
-            <div key={eachEvent._id} className="eventDiv">
-              <h4>{eachEvent.title}</h4>
-              <p>{eachEvent.locationType}</p>
-              <Link to={`/eventdets/${eachEvent._id}`}>More details</Link>
-
+            <div key={eachEvent._id} className="container">
+              
+              <Link to={`/eventdets/${eachEvent._id}`}>
+              <h2>{eachEvent.title}</h2>
+              </Link>
+              {eachEvent.imageUrl && (
+                        <img src={eachEvent.imageUrl} alt={eachEvent.title} />
+                    )}
             </div>
           ))
         ) : (
           <p>No upcoming events found</p>
         )}
+        </div>
 
         <h3>Past Events:</h3>
+        <div className="grid">
         {pastEvents.length > 0 ? (
           pastEvents.map((eachEvent) => (
-            <div key={eachEvent._id} className="eventDiv">
-            <h4>{eachEvent.title}</h4>
-              <p>{eachEvent.locationType}</p>
-              <Link to={`/eventdets/${eachEvent._id}`}>More details</Link>
+            <div key={eachEvent._id} className="container">
+            <Link to={`/eventdets/${eachEvent._id}`}>
+              <h2>{eachEvent.title}</h2>
+              </Link>
+              {eachEvent.imageUrl && (
+                        <img src={eachEvent.imageUrl} alt={eachEvent.title} />
+                    )}
             </div>
+        
           ))
         ) : (
           <p>No past events found</p>
         )}
+        </div>
+      </div>
+
+    </>
+    
+    ) : (<p>Loading</p>)}
+
     </div>
-      </>
-      
-
-
-    ) : (
-
-    <p>Loading...</p>
-    )
-    }
-  </>
 );
 }

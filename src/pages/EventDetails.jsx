@@ -76,19 +76,23 @@ export default function EventDetails() {
   };
 
   return oneEvent ? (
-    <div>
-      <div>{oneEvent.title}</div>
-      <div>{oneEvent.description}</div>
-      <div>{oneEvent.date}</div>
-      <div>{oneEvent.locationType}</div>
-      <img src={oneEvent.imageUrl} />
+    <div className="skill-dets">
+      <div className="fullWidthImg">
+          {oneEvent.imageUrl &&
+            <img src={oneEvent.imageUrl} alt={oneEvent.title}/>}
+          </div>
+          <br/>
+
+        <h2>Details of {oneEvent.title}</h2>
+        <p className="skill-dets">{oneEvent.description}</p>
+        <h3>Date:</h3> <p>{oneEvent.date}</p>
+        <h3>Location type:</h3> <p>{oneEvent.locationType}</p>
+        <br/>
+      
       <button onClick={handleEditEvent}>Edit Event</button>
       <button onClick={handleDeleteEvent}>Delete Event</button>
-      <Link to={`/eventdets/${oneEvent._id}`}></Link>
-      {isSubscribed && <button onClick={() => handleSubs(oneEvent._id)}>Subscribe</button>}
-      {!isSubscribed && <button onClick={() => handleSubs(oneEvent._id)}>Unsubscribe</button>}
-      {message && <p>{message}</p>}
-     {/*  <button onClick={() => handleSubs(oneEvent._id)}>Unsubscribe</button> */}
+      {isSubscribed && <button onClick={() => handleSubs(oneEvent._id)}>Unsubscribe</button>}
+      {!isSubscribed && <button onClick={() => handleSubs(oneEvent._id)}>Subscribe</button>}
 
     </div>
   ) : (
